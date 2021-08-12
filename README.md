@@ -23,6 +23,8 @@ O projeto foi feito para receber as informações passadas em formato json e gra
 
 ## Início ## 
 
+**Deverá ser criado um banco com o nome _projetoentrevista_, os esquemas serão gerados pelo projeto, o usuário e senha da conexão com o banco devera ser alterado para o usuário e senha configurado em sua máquina, essas configurações são encontradas dentro no caminho /src/main/java/resources/application.properties.**
+
 Para iniciar o projeto, podera ser utilizado o comando na raiz do projeto: 
 ````
 mvn spring-boot:run
@@ -103,6 +105,8 @@ The project was done to receive data in a json format and save them in the datab
 
 
 ## Start ## 
+
+**A database must be created with the name _projetoentrevista_, the schemes will be automatic created by the project, the username and password must be changed to the user and password configured in your machine, these configurations are found inside /src/main/java/resources/application.properties.**
 
 The project start can be done by executing the following command on the terminal at the project root:
 ````
