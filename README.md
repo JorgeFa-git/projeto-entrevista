@@ -15,9 +15,10 @@ Projeto desenvolvido para entrevista de emprego e estudo de API's utilizando Spr
 ## Como funciona ##
 
 Este é um pejeto simples para aplicação de operações CRUD¹.
+
 Para melhor vizualização recomento utilizar Postman para realizar as operações de  POST, PUT e DELETE, e para a operação GET recomendo utilizar o navegador de sua preferência, todas as operações devem ser feitas utilizando formato json.
  
-O projeto foi feito para receber as informações passadas pela url e gravar essa informação no banco de dados, podendo ser alterada e deletada. 
+O projeto foi feito para receber as informações passadas em formato json e gravar essa informação no banco de dados, podendo ser alterada e deletada posteriormente. 
 
 
 ## Início ## 
@@ -64,10 +65,17 @@ curl -X PUT http://localhost:8081/api/processo -H "Content-Type: application/jso
 
 OBS: Apenas o réu será atualizado, mantendo o número do processo e o id do mesmo no banco.
 
+### DELETE ###
+Para operações de DELETE poderá ser enviado um ou mais processo no corpo do json:
+````
+curl -X DELETE http://localhost:8081/api/processo -H "Content-Type: application/json" \  -d '[{"numero":"1524", "reu": "Exemplo"},{"numero":"1458", "reu": "Exemplo Teste"}]'
+````
+
 ## Notas ##
 
-[¹] - CRUD: Create, Read, Update, Delete.   
+[¹] - CRUD: Create, Read, Update, Delete. São operações cruciais na operação de banco de dados.   
 
+------
 ------
 
 #### English ####
@@ -87,56 +95,62 @@ This project was developed mainly a take-home assignment and a study project.
 
 ## How it works ##
 
-O objetivo deste projeto é testar uma aplicação API/Rest utilizando operações CRUD¹.
-Para melhor vizualização recomento utilizar Postman para realizar as operações de  POST, PUT e DELETE, e para a operação GET recomendo utilizar o navegador de sua preferência, todas as operações devem ser feitas utilizando formato json.
+This is a simple project to test and learn about CRUD¹ operations.
 
-O projeto foi feito para receber as informações passadas pela url e gravar essa informação no banco de dados, podendo ser alterada e deletada.
+To better visualize the POST, PUT, and DELETE operations is recommended to use the terminal or Postman, and for the GET operation is better visualized in your preference browser, all the operations must be done with json format.
+
+The project was done to receive data in a json format and save them in the database, being able to be changed and deleted afterwards.
 
 
-## Início ## 
+## Start ## 
 
-Para iniciar o projeto, podera ser utilizado o comando na raiz do projeto:
+The project start can be done by executing the following command on the terminal at the project root:
 ````
 mvn spring-boot:run
 ````
 
-Ou inciar normalmente caso esteja utilizando alguma IDE.
+Or start normally if using an IDE.
 
-## Utilizando ## 
+## Using ## 
 
 ### POST ###
-Para a operação POST do microserviço utilize o seguinte comando no terminal:
+For the POST operations use the following command on the terminal:
 ````
 curl -X POST http://localhost:8081/api/processo -H "Content-Type: application/json" \  -d '[{"numero":"1524", "reu": "Exemplo"}]'
 ````
-Caso não exita um processo com o mesmo número você vera a seguinte mensagem:
+If there isn't a process with the same number you'll see the following message:
 ````
 Processo {numero do processo} inserido com sucesso!
 ````
-
-Caso ja exista um processo com esse número salvo no banco de dados a seguinte mensagem será exibida:
+If there is already a process with that number the following message will be displayed:
 ````
 Processo de número {numero do processo} ja existe no banco de dados!
 ````
-Se desejar enviar mais de um processo por vez, apenas adicione os processos dentro do corpo do json:
+If you wish to send more than one process, just add them to the json body:
 ````
 curl -X POST http://localhost:8081/api/processo -H "Content-Type: application/json" \  -d '[{"numero":"1524", "reu": "Exemplo"},{"numero":"1458", "reu": "Exemplo Teste"}]'
 ````
 ### GET ###
-Para operações de get para melhor vizualização recomendo abrir o navegador no link http://localhost:8081/api/processo.
-Caso queria solicitar pelo terminal ou Postman:
+For better visualization of the GET operation is recommended to use a browser and go to the link http://localhost:8081/api/processo.
+You may use the terminal as well using the following command:
 ````
 curl -X GET http://localhost:8081/api/processo
 ````
 
 ### PUT ###
-Para operações de atualização, deverá ser atualizado apenas um processo por vez utilizando o seguinte comando:
+For the update operations, must be send just one process each time using the following command:
 ````
 curl -X PUT http://localhost:8081/api/processo -H "Content-Type: application/json" \  -d '{"numero":"1524", "reu": "Exemplo"}'
 ````
 
-OBS: Apenas o réu será atualizado, mantendo o número do processo e o id do mesmo no banco.
+PS: Only the defendant will be updated, the number and id will remain the same.
 
-## Notas ##
+### DELETE ###
+And for the delete operations you can send more than one process each time with the following command: 
+````
+curl -X DELETE http://localhost:8081/api/processo -H "Content-Type: application/json" \  -d '{"numero":"1524", "reu": "Exemplo"}'
+````
 
-[¹] - CRUD: Create, Read, Update, Delete.   
+## NOTES ##
+
+[¹] - CRUD: Create, Read, Update, Delete. They are crucial database operations.   
